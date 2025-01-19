@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:not_my_second_app/search_button.dart';
 
 class StartScreen extends StatelessWidget {
-  const StartScreen(this.switchScreen,{super.key});
+  const StartScreen(this.switchScreen, {super.key});
 
   final void Function() switchScreen;
 
@@ -12,9 +13,13 @@ class StartScreen extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Image.asset(
-            'assets/images/halo.png',
-            width: 300,
+          ClipRRect(
+            borderRadius: BorderRadius.circular(10.0),
+            child: Image.asset(
+              'assets/images/halo.png',
+              width: 300,
+              fit: BoxFit.fill,
+            ),
           ),
           const SizedBox(
             height: 80,
@@ -30,6 +35,10 @@ class StartScreen extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
+          const SearchButton(),
+          const SizedBox(
+            height: 20,
+          ),
           OutlinedButton.icon(
             onPressed: switchScreen,
             style: OutlinedButton.styleFrom(
@@ -38,9 +47,12 @@ class StartScreen extends StatelessWidget {
                 color: Color.fromARGB(255, 209, 137, 85),
               ),
             ),
-            icon: const Icon(Icons.arrow_right_alt, color: Color.fromARGB(255, 209, 137, 85),),
+            icon: const Icon(
+              Icons.arrow_right_alt,
+              color: Color.fromARGB(255, 209, 137, 85),
+            ),
             label: Text(
-              'Start Training',
+              'Test Your Skills',
               style: GoogleFonts.syneMono(
                 color: const Color.fromARGB(255, 209, 137, 85),
                 fontSize: 18,
